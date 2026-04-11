@@ -34,7 +34,7 @@
   </div>
 
  	<footer>
-   Amar Jamil • XII-K2 • SMK Al Falah Bandung • UJIKOM
+   Amar Jamil • XII-K2 • SMK Al Falah Bandung • Uji Kompetensi Keahlian
   </footer>
 
   <script type="module">
@@ -74,21 +74,21 @@
     const rgbRef = ref(db, "smart_parking/rgb");  // Path warna RGB
 
     // ================= DISTANCE =================
-    onValue(distanceRef, (snap) => {
+    onValue(distanceRef, (snap) => {  // Memantau perubahan data secara realtime
      let d = snap.val();  // Ambil nilai dari firebase
      console.log("Distance:", d);  // Debug di console
      document.getElementById("distance").innerText = d + " cm";  // Tampilkan ke UI
     });
 
     // ================= GATE =================
-    onValue(gateRef, (snap) => {
+    onValue(gateRef, (snap) => {  // Memantau perubahan data secara realtime
      let g = snap.val();  // Ambil data
      console.log("Gate:", g);
      document.getElementById("gate").innerText = g;  // Tampilkan status
     });
 
     // ================= RGB / WARNA UI =================
-    onValue(rgbRef, (snap) => {
+    onValue(rgbRef, (snap) => {  // Memantau perubahan data secara realtime
      let color = snap.val();  // Ambil warna dari Firebase
       console.log("RGB:", color);
       document.getElementById("rgb").innerText = color;  // Tampilkan teks warna
