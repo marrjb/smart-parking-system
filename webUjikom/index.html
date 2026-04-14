@@ -71,7 +71,7 @@
     // ================= REFERENSI FIREBASE =================
     const distanceRef = ref(db, "automatic_gate/distance");  // Path jarak
     const gateRef = ref(db, "automatic_gate/gate");  // Path status gate
-    const rgbRef = ref(db, "automatic/rgb");  // Path warna RGB
+    const rgbRef = ref(db, "automatic_gate/rgb");  // Path warna RGB
 
     // ================= DISTANCE =================
     onValue(distanceRef, (snap) => {  // Memantau perubahan data secara realtime
