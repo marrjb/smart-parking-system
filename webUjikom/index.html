@@ -69,9 +69,9 @@
     updateClock();
 
     // ================= REFERENSI FIREBASE =================
-    const distanceRef = ref(db, "smart_parking/distance");  // Path jarak
-    const gateRef = ref(db, "smart_parking/gate");  // Path status gate
-    const rgbRef = ref(db, "smart_parking/rgb");  // Path warna RGB
+    const distanceRef = ref(db, "automatic_gate/distance");  // Path jarak
+    const gateRef = ref(db, "automatic_gate/gate");  // Path status gate
+    const rgbRef = ref(db, "automatic/rgb");  // Path warna RGB
 
     // ================= DISTANCE =================
     onValue(distanceRef, (snap) => {  // Memantau perubahan data secara realtime
