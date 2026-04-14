@@ -81,14 +81,14 @@ void loop() {
   Serial.print("Jarak: ");
   Serial.print(distance);
   Serial.println(" cm");
-  fb.setInt("smart_parking/distance", distance);    // Kirim data ke Firebase
+  fb.setInt("automatic_gate/distance", distance);    // Kirim data ke Firebase
 
   // ================= SERVO BUKA =================
   if (distance < 10 && !gateOpen) {                 // Jika ada objek dekat dan gerbang masih tertutup
     gateOpen = true;                                // Ubah status jadi terbuka
     Serial.println("GATE OPEN");
-    fb.setString("smart_parking/gate", "OPEN");     // Update status ke Firebase
-    fb.setString("smart_parking/rgb", "GREEN");     // Update status ke Firebase
+    fb.setString("automatic_gate/gate", "OPEN");     // Update status ke Firebase
+    fb.setString("automatic_gate/rgb", "GREEN");     // Update status ke Firebase
     digitalWrite(GREEN_PIN, HIGH);                  // Nyalakan LED hijau
     digitalWrite(RED_PIN, LOW);
     digitalWrite(BLUE_PIN, LOW);
@@ -100,8 +100,8 @@ void loop() {
   if (distance > 15 && gateOpen) {                  // Jika objek sudah jauh dan gerbang terbuka
     gateOpen = false;                               // Ubah status jadi tertutup
     Serial.println("GATE CLOSE");
-    fb.setString("smart_parking/gate", "CLOSE");    // Update Firebase
-    fb.setString("smart_parking/rgb", "RED");       // Warna merah
+    fb.setString("automatic_gate/gate", "CLOSE");    // Update Firebase
+    fb.setString("automatic_gate/rgb", "RED");       // Warna merah
     digitalWrite(RED_PIN, HIGH);                    // Nyalakan LED merah
     digitalWrite(GREEN_PIN, LOW);
     digitalWrite(BLUE_PIN, LOW);
@@ -112,8 +112,8 @@ void loop() {
   // ================= STANDBY =================
   if (distance > 15 && !gateOpen) {                 // Jika tidak ada objek dan gerbang tertutup
     Serial.println("STANDBY");
-    fb.setString("smart_parking/gate", "STANDBY");  // Status standby
-    fb.setString("smart_parking/rgb", "BLUE");      // Warna biru
+    fb.setString("automatic_gate/gate", "STANDBY");  // Status standby
+    fb.setString("automatic_gate/rgb", "BLUE");      // Warna biru
     digitalWrite(BLUE_PIN, HIGH);                   // Nyalakan LED biru
     digitalWrite(GREEN_PIN, LOW);
     digitalWrite(RED_PIN, LOW);
