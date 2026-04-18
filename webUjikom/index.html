@@ -10,7 +10,7 @@
  <body>
   <header>
    <h1>Automatic Gate System</h1>
-   <div id="clock">--:--:--</div>
+   <!-- <div id="clock">--:--:--</div> -->
   </header>
 
   <div class="container">
@@ -59,14 +59,14 @@
    const app = initializeApp(firebaseConfig);  // Jalankan Firebase
    const db = getDatabase(app);   // Ambil database
 
-   // Realtime
-   function updateClock() {
-    const now = new Date();  // Ambil waktu sekarang
-    document.getElementById("clock").innerHTML =
-     now.toLocaleDateString() + " • " + now.toLocaleTimeString();  // Tampilkan tanggal + jam
-    }
-    setInterval(updateClock, 1000);  // Update tiap 1 detik
-    updateClock();
+   // // Realtime
+   // function updateClock() {
+   //  const now = new Date();
+   //  document.getElementById("clock").innerHTML =
+   //   now.toLocaleDateString() + " • " + now.toLocaleTimeString();
+   //  }
+   //  setInterval(updateClock, 1000);
+   //  updateClock();
 
     // ================= REFERENSI FIREBASE =================
     const distanceRef = ref(db, "automatic_gate/distance");  // Path jarak
